@@ -1,4 +1,0 @@
-Update v8.2....
-1. We have an important logical error. When we use split. It's adding back the money of each entity in Cash in hand. That should not happen.
-2. Remove Sub-tags only keep main Tags. Add the option to delete tags.
-3. Work on Optimization.

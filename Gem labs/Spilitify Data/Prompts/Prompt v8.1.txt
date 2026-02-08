@@ -1,5 +1,0 @@
-The app is having Errors. It's not oppening the expense report, and also the weekly exp is not responding.
-
-I think we should add all this (The SS) Details in the Manifest file.
-
-The Tags Option is Good, But It should appear like the way friends are in Split.
