@@ -1,0 +1,17 @@
+Update 8.0.....
+
+Now is to make the report section more detailed with graphs and a comparison of reports.
+
+For this, we have to create tags. The user should have the power to create sub-tags and their sub-tags.
+
+How would it work...
+
+1. In the expense section. Before detailing, the user would have the option to select a tag. The user can select any tag, but only one. For example,e iI i have a Tag>Sub-tag>Subtag. (Stationary>Uni>Ballpoint). The user selects First Tag. It would be Stationary only. But if the user selects a ballpoint. The program would know its. Ballpoint from Uni from Stationery. So, it would work that way during Reports.
+
+There should be a search button over tags and over friends in the split section to find a friend quickly if the user is having any issues. Also, the tags and friends used recently should be on top.
+
+2. Also, expense graphs in the reports section. Do it the best way. If any change is needed, we'll do it in the next update.
+
+3. If there is no friend. It should be in the Friends ledger. (Add friends in settings. (Under this line) Upper right corner "Settings Symbol")
+
+4. Remove Help Tutorial from settings.

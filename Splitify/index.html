@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#2563eb">
+    <title>Splitify v9</title>
+    <link rel="manifest" href="manifest.json">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: { colors: { slate: { 850: '#1e293b' } } } } }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .modal { transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); transform: translateY(100%); }
+        .modal.active { transform: translateY(0); }
+        .fade-in { opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+        .fade-in.active { opacity: 1; pointer-events: auto; }
+        .checkbox-wrapper:has(:checked) { background-color: #eff6ff; border-color: #3b82f6; }
+        .dark .checkbox-wrapper:has(:checked) { background-color: #1e3a8a; border-color: #60a5fa; }
+    </style>
+</head>
+<body class="h-screen flex flex-col bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 overflow-hidden transition-colors duration-300">
+
+    <!-- HEADER -->
+    <div class="bg-blue-600 dark:bg-blue-800 text-white p-6 pt-12 pb-10 rounded-b-[2.5rem] shadow-xl z-10 shrink-0 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -mr-16 -mt-16"></div>
+        <div class="relative z-10">
+            <div class="flex justify-between items-center mb-6">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-md"><i class="fa-solid fa-wallet text-sm"></i></div>
+                    <div><h1 class="text-xl font-extrabold tracking-tight">Splitify</h1><p class="text-[10px] text-blue-200 font-medium mt-1" id="welcomeUser">Welcome</p></div>
+                </div>
+                <button id="btnSettings" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition"><i class="fa-solid fa-gear text-sm"></i></button>
+            </div>
+
+            <!-- CARDS -->
+            <div class="grid grid-cols-2 gap-3 mb-4">
+                <div id="cardCash" class="bg-blue-700/50 dark:bg-blue-900/50 p-4 rounded-2xl border border-blue-500/30 backdrop-blur-sm active:scale-95 transition cursor-pointer">
+                    <div class="flex justify-between items-start"><p class="text-blue-200 text-[10px] font-bold uppercase tracking-wider mb-1">Cash</p><i class="fa-solid fa-chevron-right text-[10px] text-blue-300"></i></div>
+                    <p class="text-2xl font-bold truncate" id="dispCash">0</p>
+                </div>
+                <div id="cardBank" class="bg-blue-700/50 dark:bg-blue-900/50 p-4 rounded-2xl border border-blue-500/30 backdrop-blur-sm active:scale-95 transition cursor-pointer">
+                    <div class="flex justify-between items-start"><p class="text-blue-200 text-[10px] font-bold uppercase tracking-wider mb-1">Bank</p><i class="fa-solid fa-chevron-right text-[10px] text-blue-300"></i></div>
+                    <p class="text-2xl font-bold truncate" id="dispBank">0</p>
+                </div>
+            </div>
+            
+            <!-- Week Summary -->
+            <div class="flex justify-between px-2 text-xs font-medium text-blue-100">
+                <div class="p-1"><span class="w-2 h-2 inline-block bg-white rounded-full mr-1"></span>Week Exp: <span id="dispWeek" class="text-white font-bold">0</span></div>
+                <div class="p-1">Get: <span id="dispRecv" class="text-white font-bold">0</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN LISTS -->
+    <div class="flex-1 overflow-y-auto -mt-6 pt-8 pb-32 px-4 space-y-5 z-0 no-scrollbar">
+        <!-- Friends -->
+        <div>
+            <div class="flex justify-between items-center px-1 mb-2">
+                <h2 class="font-bold text-slate-700 dark:text-slate-300 text-sm uppercase tracking-wide">Friends Ledger</h2>
+                <button id="btnViewFriends" class="text-blue-600 dark:text-blue-400 text-xs font-bold bg-blue-50 dark:bg-slate-800 px-3 py-1.5 rounded-full">View All</button>
+            </div>
+            <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm overflow-hidden divide-y divide-slate-50 dark:divide-slate-700 min-h-[100px]" id="listFriends"></div>
+        </div>
+        
+        <!-- Recent History -->
+        <div>
+            <div class="flex justify-between items-center px-1 mb-2">
+                <h2 class="font-bold text-slate-400 text-xs uppercase tracking-wide">Recent</h2>
+                <button id="btnViewHistory" class="text-blue-600 dark:text-blue-400 text-xs font-bold">View All</button>
+            </div>
+            <div id="listHistory" class="space-y-2"></div>
+        </div>
+    </div>
+
+    <!-- BOTTOM NAV -->
+    <div class="fixed bottom-6 left-4 right-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur-xl p-2 rounded-[2rem] shadow-2xl border border-slate-200/50 dark:border-slate-700 flex justify-between items-center z-30">
+        <button id="navExpense" class="flex-1 flex flex-col items-center py-2 rounded-[1.5rem] active:bg-slate-100 dark:active:bg-slate-700 transition group">
+            <div class="w-10 h-10 rounded-full bg-red-50 dark:bg-red-900/20 text-red-500 flex items-center justify-center mb-1 group-active:scale-95 transition"><i class="fa-solid fa-receipt"></i></div>
+            <span class="text-[10px] font-bold text-slate-500 dark:text-slate-400">Expense</span>
+        </button>
+        <button id="navSplit" class="flex-1 flex flex-col items-center py-2 rounded-[1.5rem] active:bg-slate-100 dark:active:bg-slate-700 transition group">
+            <div class="w-10 h-10 rounded-full bg-purple-50 dark:bg-purple-900/20 text-purple-500 flex items-center justify-center mb-1 group-active:scale-95 transition"><i class="fa-solid fa-users-viewfinder"></i></div>
+            <span class="text-[10px] font-bold text-slate-500 dark:text-slate-400">Split</span>
+        </button>
+        <button id="navMenu" class="flex-1 flex flex-col items-center py-2 rounded-[1.5rem] active:bg-slate-100 dark:active:bg-slate-700 transition group">
+            <div class="w-10 h-10 rounded-full bg-slate-800 dark:bg-white text-white dark:text-slate-800 flex items-center justify-center mb-1 shadow-lg shadow-slate-300 dark:shadow-none group-active:scale-95 transition"><i class="fa-solid fa-plus"></i></div>
+            <span class="text-[10px] font-bold text-slate-800 dark:text-slate-200">More</span>
+        </button>
+    </div>
+
+    <!-- GENERIC MODAL CONTAINER -->
+    <div id="modalOverlay" class="fixed inset-0 bg-black/60 fade-in flex flex-col justify-end backdrop-blur-sm z-50">
+        <div id="modalContent" class="modal bg-white dark:bg-slate-800 w-full rounded-t-[2rem] h-[95vh] flex flex-col shadow-2xl">
+            <!-- Dynamic Content Injected Here -->
+        </div>
+    </div>
+
+    <!-- MODULES -->
+    <script type="module" src="js/controller.js"></script>
+</body>
+</html>

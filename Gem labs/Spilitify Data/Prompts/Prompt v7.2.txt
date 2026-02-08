@@ -1,0 +1,13 @@
+Next Update.
+User feedback.
+> When we add new friends. There is nothing that tells us how to add them. And when we finally start adding them. It keeps taking us back to the Home page after every ad. Then there is the problem. If I added Saqib. The next person I'll add. There would already be written Saqib. Shouldn't be empty. Like the time of the first name.
+Other noticeable things. 
+> Reports have logical errors.
+> The app doesn't know who is using it.
+> Sometimes we give cash to others, but that is our expense. Like User 1 has paid all the expenses of User 2 this week. But when user 2 gives him cash in the user 2 app, it's not added to expenses. It has two solutions. 1. There should be an option in payment to select "expense" it would know it's also his expense. Or we should connect apps of different users together that way when any user update the other user.
+> The app doesn't guide the new user.
+*For now.*
+v7.2 Update...
+We would update, The interface and report section. We would keep the reports only for expenses there. We would move the cash and bank ledger from reports to home page like individual ledgers. Whenever we would click cash and bank cash. It would open cash and bank amount. It would open cash and bank amount respectively. And it should be beautiful and colorful like individual ledger and expenses. And report section should be colorful.
+The app should ask the user for his name for once and user should have the power to change his name in settings. 
+It should also have a guide section in setings for helping user. It should shown to the new user once and then if he want he can see it in settings.
