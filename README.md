@@ -19,7 +19,7 @@
 Welcome to the **Rough-Code Archive**. If my main repositories are the gallery, this is the workshop. 
 
 This space is dedicated to the raw, unfiltered learning process of a Software Engineering student. It houses the late-night exam preparations, the trial-and-error HTML snippets, and the iterative stages of university semester projects. It is chaotic by design, serving as a personal digital scratchpad.
-
+Here I keep my code for testing.
 ---
 
 ## 📂 Repository Blueprint
