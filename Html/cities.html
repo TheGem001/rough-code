@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ramadan Data Collector</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #0f172a; /* slate-900 */
+      color: #f8fafc; /* slate-50 */
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #1e293b; /* slate-800 */
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #475569; /* slate-600 */
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #64748b; /* slate-500 */
+    }
+  </style>
+</head>
+<body class="h-screen flex flex-col font-sans">
+
+  <!-- Header -->
+  <header class="bg-slate-950 border-b border-slate-800 p-6 shadow-md z-10 flex-shrink-0">
+    <div class="max-w-3xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div>
+        <h1 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">
+          Ramadan Data Collector
+        </h1>
+        <p class="text-slate-400 text-sm mt-1">Track your calendar image searches for 2026</p>
+      </div>
+      
+      <!-- Progress Bar -->
+      <div class="w-full sm:w-64 bg-slate-800 rounded-full h-4 relative overflow-hidden shadow-inner">
+        <div id="progress-bar" class="bg-gradient-to-r from-amber-500 to-orange-500 h-full rounded-full transition-all duration-500 w-0"></div>
+        <div class="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-white drop-shadow-md">
+          <span id="progress-text">0 / 61</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content (List) -->
+  <main class="flex-1 overflow-y-auto p-4 sm:p-6 custom-scrollbar">
+    <div class="max-w-3xl mx-auto space-y-3" id="prompts-container">
+      <!-- Items will be injected here by JavaScript -->
+    </div>
+  </main>
+
+  <script>
+    const prompts = [
+      "Ramadan Calendar for Islamabad 2026", "Ramadan Calendar for Lahore 2026", "Ramadan Calendar for Faisalabad 2026",
+      "Ramadan Calendar for Rawalpindi 2026", "Ramadan Calendar for Multan 2026", "Ramadan Calendar for Gujranwala 2026",
+      "Ramadan Calendar for Bahawalpur 2026", "Ramadan Calendar for Sargodha 2026", "Ramadan Calendar for Sialkot 2026",
+      "Ramadan Calendar for Sheikhupura 2026", "Ramadan Calendar for Rahim Yar Khan 2026", "Ramadan Calendar for Jhang 2026",
+      "Ramadan Calendar for Dera Ghazi Khan 2026", "Ramadan Calendar for Gujrat 2026", "Ramadan Calendar for Sahiwal 2026",
+      "Ramadan Calendar for Okara 2026", "Ramadan Calendar for Kasur 2026", "Ramadan Calendar for Mianwali 2026",
+      "Ramadan Calendar for Bhakkar 2026", "Ramadan Calendar for Chiniot 2026", "Ramadan Calendar for Hafizabad 2026",
+      "Ramadan Calendar for Karachi 2026", "Ramadan Calendar for Hyderabad 2026", "Ramadan Calendar for Sukkur 2026",
+      "Ramadan Calendar for Larkana 2026", "Ramadan Calendar for Nawabshah 2026", "Ramadan Calendar for Mirpur Khas 2026",
+      "Ramadan Calendar for Jacobabad 2026", "Ramadan Calendar for Shikarpur 2026", "Ramadan Calendar for Khairpur 2026",
+      "Ramadan Calendar for Dadu 2026", "Ramadan Calendar for Thatta 2026", "Ramadan Calendar for Badin 2026",
+      "Ramadan Calendar for Peshawar 2026", "Ramadan Calendar for Mardan 2026", "Ramadan Calendar for Mingora 2026",
+      "Ramadan Calendar for Kohat 2026", "Ramadan Calendar for Abbottabad 2026", "Ramadan Calendar for Dera Ismail Khan 2026",
+      "Ramadan Calendar for Nowshera 2026", "Ramadan Calendar for Charsadda 2026", "Ramadan Calendar for Mansehra 2026",
+      "Ramadan Calendar for Swabi 2026", "Ramadan Calendar for Bannu 2026", "Ramadan Calendar for Timergara 2026",
+      "Ramadan Calendar for Quetta 2026", "Ramadan Calendar for Khuzdar 2026", "Ramadan Calendar for Chaman 2026",
+      "Ramadan Calendar for Turbat 2026", "Ramadan Calendar for Sibi 2026", "Ramadan Calendar for Hub 2026",
+      "Ramadan Calendar for Zhob 2026", "Ramadan Calendar for Gwadar 2026", "Ramadan Calendar for Loralai 2026",
+      "Ramadan Calendar for Muzaffarabad 2026", "Ramadan Calendar for Mirpur 2026", "Ramadan Calendar for Kotli 2026",
+      "Ramadan Calendar for Rawalakot 2026", "Ramadan Calendar for Gilgit 2026", "Ramadan Calendar for Skardu 2026",
+      "Ramadan Calendar for Hunza 2026"
+    ];
+
+    let completedState = JSON.parse(localStorage.getItem('ramadanSearchProgress')) || {};
+
+    const container = document.getElementById('prompts-container');
+    const progressBar = document.getElementById('progress-bar');
+    const progressText = document.getElementById('progress-text');
+
+    function updateProgress() {
+      const total = prompts.length;
+      const completed = Object.values(completedState).filter(v => v === true).length;
+      const percentage = (completed / total) * 100;
+      
+      progressBar.style.width = `${percentage}%`;
+      progressText.innerText = `${completed} / ${total}`;
+      
+      // Save to local storage
+      localStorage.setItem('ramadanSearchProgress', JSON.stringify(completedState));
+    }
+
+    function toggleCompletion(index, rowElement) {
+      completedState[index] = !completedState[index];
+      
+      if (completedState[index]) {
+        rowElement.classList.add('opacity-50', 'bg-slate-800/50');
+        rowElement.classList.remove('bg-slate-800');
+      } else {
+        rowElement.classList.remove('opacity-50', 'bg-slate-800/50');
+        rowElement.classList.add('bg-slate-800');
+      }
+      
+      updateProgress();
+    }
+
+    function renderList() {
+      container.innerHTML = '';
+      
+      prompts.forEach((promptText, index) => {
+        const isCompleted = completedState[index] === true;
+        
+        // Main row container
+        const row = document.createElement('div');
+        row.className = `flex items-center justify-between p-4 rounded-xl border border-slate-700 transition-all ${isCompleted ? 'opacity-50 bg-slate-800/50' : 'bg-slate-800 hover:border-amber-500/50 hover:shadow-lg'}`;
+        
+        // Left side: Checkbox + Text
+        const leftSide = document.createElement('div');
+        leftSide.className = 'flex items-center gap-4 flex-1';
+        
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = isCompleted;
+        checkbox.className = 'w-5 h-5 rounded border-slate-600 text-amber-500 focus:ring-amber-500 focus:ring-offset-slate-800 cursor-pointer accent-amber-500';
+        checkbox.addEventListener('change', () => toggleCompletion(index, row));
+        
+        const text = document.createElement('span');
+        text.className = 'font-medium text-slate-200 sm:text-base text-sm truncate';
+        text.innerText = promptText;
+        
+        leftSide.appendChild(checkbox);
+        leftSide.appendChild(text);
+        
+        // Right side: Search Button
+        const searchBtn = document.createElement('a');
+        searchBtn.href = `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(promptText)}`;
+        searchBtn.target = '_blank';
+        searchBtn.className = 'ml-4 shrink-0 flex items-center gap-2 px-3 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold rounded-lg transition-colors shadow-sm';
+        searchBtn.innerHTML = `
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          <span class="hidden sm:inline">Images</span>
+        `;
+        
+        row.appendChild(leftSide);
+        row.appendChild(searchBtn);
+        
+        container.appendChild(row);
+      });
+      
+      updateProgress();
+    }
+
+    // Initialize
+    renderList();
+  </script>
+</body>
+</html>
