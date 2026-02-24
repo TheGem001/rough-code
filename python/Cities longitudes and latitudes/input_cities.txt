@@ -2,60 +2,128 @@ Islamabad, 33.6844, 73.0479
 Lahore, 31.5204, 74.3587
 Faisalabad, 31.4187, 73.0791
 Rawalpindi, 33.5973, 73.0479
-Multan, 30.1575, 71.5249
-Gujranwala, 32.1617, 74.1883
-Bahawalpur, 29.3957, 71.6833
-Sargodha, 32.0836, 72.6711
-Sialkot, 32.4921, 74.5310
-Sheikhupura, 31.7167, 73.9850
-Rahim Yar Khan, 28.4212, 70.2989
-Jhang, 31.2781, 72.3317
-Dera Ghazi Khan, 30.0489, 70.6317
-Gujrat, 32.5736, 74.0789
-Sahiwal, 30.6682, 73.1114
-Okara, 30.8090, 73.4508
-Kasur, 31.1154, 74.4436
-Mianwali, 32.5839, 71.5370
-Bhakkar, 31.6333, 71.0667
-Chiniot, 31.7200, 72.9789
-Hafizabad, 32.0679, 73.6858
-Karachi, 24.8607, 67.0011
-Hyderabad, 25.3960, 68.3578
-Sukkur, 27.7132, 68.8623
-Larkana, 27.5570, 68.2120
-Nawabshah, 26.2483, 68.4096
-Mirpur Khas, 25.5251, 69.0159
-Jacobabad, 28.2769, 68.4514
-Shikarpur, 27.9571, 68.6382
-Khairpur, 27.5256, 68.7551
-Dadu, 26.7303, 67.7769
-Thatta, 24.7461, 67.9243
-Badin, 24.6558, 68.8384
-Peshawar, 34.0151, 71.5249
-Mardan, 34.1989, 72.0404
-Mingora, 34.7717, 72.3600
-Kohat, 33.5860, 71.4415
 Abbottabad, 34.1688, 73.2215
-Dera Ismail Khan, 31.8327, 70.9024
-Nowshera, 34.0105, 71.9838
-Charsadda, 34.1482, 71.7406
-Mansehra, 34.3333, 73.2000
-Swabi, 34.1202, 72.4697
+Ahmadpur East, 29.1431, 71.2598
+Alipur, 29.3828, 70.9111
+Arifwala, 30.2906, 73.0656
+Attock, 33.7645, 72.3667
+Awaran, 26.3995, 65.2314
+Badin, 24.6468, 68.8385
+Bahawalnagar, 29.9983, 73.2536
+Bahawalpur, 29.3957, 71.6833
 Bannu, 32.9861, 70.6042
-Timergara, 34.8281, 71.8408
-Quetta, 30.1798, 66.9750
-Khuzdar, 27.8003, 66.6112
-Chaman, 30.9236, 66.4512
-Turbat, 26.0012, 63.0485
-Sibi, 29.5448, 67.8764
-Hub, 25.0272, 66.8822
-Zhob, 31.3408, 69.4493
-Gwadar, 25.1216, 62.3254
-Loralai, 30.3705, 68.5980
-Muzaffarabad, 34.3587, 73.4714
-Mirpur, 33.1428, 73.7423
-Kotli, 33.5156, 73.9019
-Rawalakot, 33.8584, 73.7540
+Bhakkar, 31.6333, 71.0667
+Bhalwal, 32.2653, 72.8981
+Burewala, 30.1667, 72.6500
+Chakwal, 32.9328, 72.8530
+Chaman, 30.9177, 66.4497
+Charsadda, 34.1482, 71.7406
+Chiniot, 31.7200, 72.9789
+Chishtian, 29.7958, 72.8578
+Chitral, 35.8510, 71.7864
+Dadu, 26.7319, 67.7750
+Daska, 32.3242, 74.3504
+Dera Bugti, 29.0307, 69.1510
+Dera Ghazi Khan, 30.0489, 70.6317
+Dera Ismail Khan, 31.8327, 70.9024
+Dipalpur, 30.6708, 73.6533
+Ghotki, 28.0064, 69.3150
 Gilgit, 35.9208, 74.3083
+Gojra, 31.1499, 72.6828
+Gujranwala, 32.1617, 74.1883
+Gujrat, 32.5736, 74.0789
+Gwadar, 25.1264, 62.3225
+Hafizabad, 32.0679, 73.6859
+Hala, 25.8115, 68.4210
+Hangu, 33.5281, 71.0594
+Haripur, 33.9946, 72.9330
+Haroonabad, 29.6100, 73.1361
+Hasan Abdal, 33.8195, 72.6890
+Hyderabad, 25.3960, 68.3578
+Jacobabad, 28.2769, 68.4514
+Jamshoro, 25.4361, 68.2802
+Jaranwala, 31.3342, 73.4194
+Jhang, 31.2781, 72.3317
+Jhelum, 32.9405, 73.7276
+Kamalia, 30.7258, 72.6447
+Kamoke, 31.9702, 74.2258
+Karachi, 24.8607, 67.0011
+Karak, 33.1163, 71.0935
+Kasur, 31.1159, 74.4408
+Khairpur, 27.5256, 68.7551
+Khanewal, 30.3017, 71.9321
+Khanpur, 28.6453, 70.6567
+Kharian, 32.8110, 73.8650
+Khushab, 32.2952, 72.3502
+Khuzdar, 27.8165, 66.6114
+Kohat, 33.5889, 71.4429
+Kot Addu, 30.4700, 70.9644
+Kotli, 33.5156, 73.9019
+Lalamusa, 32.7006, 73.9558
+Larkana, 27.5590, 68.2120
+Layyah, 30.9693, 70.9428
+Liaquatpur, 28.9286, 70.9431
+Lodhran, 29.5339, 71.6324
+Loralai, 30.3705, 68.5979
+Mailsi, 29.8003, 72.1758
+Mansehra, 34.3298, 73.1968
+Mardan, 34.1986, 72.0404
+Mastung, 29.7997, 66.8455
+Matiari, 25.5971, 68.4467
+Mian Channu, 30.4390, 72.3556
+Mianwali, 32.5853, 71.5436
+Mingora, 34.7717, 72.3600
+Mirpur, 33.1424, 73.7430
+Mirpur Khas, 25.5251, 69.0159
+Moro, 26.6635, 68.0003
+Multan, 30.1575, 71.5249
+Muridke, 31.7989, 74.2560
+Murree, 33.9070, 73.3943
+Muzaffarabad, 34.3700, 73.4711
+Muzaffargarh, 30.0703, 71.1933
+Nankana Sahib, 31.4492, 73.7124
+Narowal, 32.0975, 74.8722
+Nawabshah, 26.2483, 68.4096
+Nowshera, 34.0158, 71.9812
+Nushki, 29.5542, 66.0215
+Okara, 30.8090, 73.4508
+Pakpattan, 30.3533, 73.3986
+Parachinar, 33.8992, 70.1008
+Pasrur, 32.2681, 74.6622
+Pattoki, 31.0214, 73.8528
+Peshawar, 34.0151, 71.5249
+Pind Dadan Khan, 32.5866, 73.0441
+Pishin, 30.5803, 66.9961
+Quetta, 30.1798, 66.9750
+Rahim Yar Khan, 28.4212, 70.2989
+Rajanpur, 29.1035, 70.3250
+Sadiqabad, 28.3006, 70.1302
+Sahiwal, 30.6682, 73.1114
+Samundri, 31.0639, 72.9611
+Sanghar, 26.0464, 68.9481
+Sargodha, 32.0836, 72.6711
+Shahdadkot, 27.8473, 67.9068
+Shahdadpur, 25.9253, 68.6225
+Sheikhupura, 31.7167, 73.9850
+Shikarpur, 27.9556, 68.6382
+Shorkot, 30.8485, 72.0740
+Sialkot, 32.4945, 74.5229
+Sibi, 29.5448, 67.8764
 Skardu, 35.2971, 75.6333
-Hunza, 36.3167, 74.6500
+Sukkur, 27.7132, 68.8623
+Swabi, 34.1202, 72.4697
+Tando Adam, 25.7682, 68.6620
+Tando Allahyar, 25.4674, 68.7183
+Tando Muhammad Khan, 25.1239, 68.5368
+Taunsa, 30.7126, 70.6505
+Taxila, 33.7463, 72.8397
+Thatta, 24.7461, 67.9243
+Timargara, 34.8281, 71.8408
+Toba Tek Singh, 30.9713, 72.4827
+Turbat, 26.0012, 63.0485
+Umerkot, 25.3614, 69.7361
+Vehari, 30.0419, 72.3528
+Wah Cantonment, 33.7715, 72.7126
+Wazirabad, 32.4417, 74.1231
+Zhob, 31.3408, 69.4493
+Ziarat, 30.3814, 67.7258
